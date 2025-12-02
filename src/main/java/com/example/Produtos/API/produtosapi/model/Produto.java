@@ -45,6 +45,22 @@ public class Produto {
         this.preco = preco;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
