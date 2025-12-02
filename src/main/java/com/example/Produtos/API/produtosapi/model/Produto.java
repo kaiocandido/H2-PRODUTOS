@@ -1,15 +1,28 @@
 package com.example.Produtos.API.produtosapi.model;
 
 
-import lombok.Getter;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 // POJO - Plain old java object
-@Getter
+
+@Entity
+@Table(name = "tb_produto")
 public class Produto {
 
+    @Id
+    @Column(name = "id")
     private String id;
+
+    @Column
     private String name;
+
+    @Column
     private String descricao;
+
+    @Column
     private Double preco;
 
     public Produto (){
