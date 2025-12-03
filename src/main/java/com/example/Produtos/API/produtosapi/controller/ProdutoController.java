@@ -52,10 +52,21 @@ public class ProdutoController {
         produtoRepository.deleteById(id);
     }
 
-    @PutMapping("/{id}")
-    public void atualizarProdutoId(@PathVariable String id, @RequestBody Produto produto){
-        produto.setId(id);
-        produtoRepository.save(produto);
+    public ResponseEntity<Produto> atualizarProdutoId(
+            @PathVariable String id,
+            @RequestBody Produto produtoRequest) {
+
+        return produtoRepository.findById(id)
+                .map(produtoExistente -> {
+                    // Atualizando apenas os campos enviados
+                    produtoExistente.setName(produtoRequest.getName());
+                    produtoExistente.setDescricao(produtoRequest.getDescricao());
+                    produtoExistente.setPreco(produtoRequest.getPreco());
+
+                    Produto atualizado = produtoRepository.save(produtoExistente);
+                    return ResponseEntity.ok(atualizado);
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
 }
