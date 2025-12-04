@@ -1,4 +1,4 @@
-# 🛒 API de Produtos – Backend Java (Spring Boot)
+#  API de Produtos – Backend Java (Spring Boot)
 
 Este projeto é uma API simples desenvolvida em **Java com Spring Boot**, permitindo realizar operações básicas de CRUD para produtos.
 
@@ -39,3 +39,4 @@ A API permite:
   "descricao": "Mouse RGB",
   "preco": 59.90
 }
+
